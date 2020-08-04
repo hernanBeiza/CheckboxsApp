@@ -23,9 +23,14 @@ export class AppComponent {
 
   public opcionesUnoOnClick(event:any, opcion:CheckItem):void {
   	console.log("opcionesUnoOnClick",opcion);
+    //Toggle
+    if(opcion.seleccionado == true){
+      opcion.seleccionado = false;
+    } else {
+      opcion.seleccionado = true;
+    }
     //Deseleccionar todas las otras
     //this.opcionesUno.forEach(uno=>uno.seleccionado=false);
-  	opcion.seleccionado = true;
   }
 
   public opcionesDosOnClick(event:any, opcion:CheckItem):void {
@@ -35,6 +40,11 @@ export class AppComponent {
 
   public revisarValores():void {
   	console.log(this.opcionesUno);
+  }
+
+  public verSeleccionados():void {
+    let seleccionados = this.opcionesUno.filter(item=>item.seleccionado==true);
+    console.log(seleccionados);
   }
 
   public borrarTodo():void {
