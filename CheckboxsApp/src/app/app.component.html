@@ -1,0 +1,27 @@
+<!--
+<router-outlet></router-outlet>
+-->
+<div class="container">
+  <h1>Ejemplo de checkboxs</h1>
+  
+  <div class="row">
+    <div class="col-12">
+  
+      <div class="form-group">
+        <h3>Grupo 1 de opciones</h3>
+
+        <div class="form-check" *ngFor="let opcion of opcionesUno">
+          <input class="form-check-input" type="checkbox" [id]="opcion.valor" name="item" 
+          (click)="opcionesUnoOnClick($event, opcion)" [checked]="opcion.seleccionado" [value]="opcion.valor">
+          <label class="form-check-label" [for]="opcion.valor">
+            {{opcion.label}}
+          </label>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="revisarValores();">Revisar Valores En Consola</button> 
+      <button type="button" class="btn btn-danger ml-2" (click)="borrarTodo();">¡Borrar Todo!</button>  
+
+    </div>
+  </div>
+</div>
