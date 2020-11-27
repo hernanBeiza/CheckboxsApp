@@ -12,7 +12,8 @@
 
         <div class="form-check" *ngFor="let opcion of opcionesUno">
           <input class="form-check-input" type="checkbox" [id]="opcion.valor" name="item" 
-          (click)="opcionesUnoOnClick($event, opcion)" [checked]="opcion.seleccionado" [value]="opcion.valor">
+          (click)="opcionesUnoOnClick($event, opcion)" [checked]="opcion.seleccionado" [value]="opcion.valor"
+          [disabled]="opcion.desactivar">
           <label class="form-check-label" [for]="opcion.valor">
             {{opcion.label}}
           </label>
@@ -22,6 +23,7 @@
       <button type="button" class="btn btn-primary" (click)="revisarValores();">Revisar Valores En Consola</button> 
       <button type="button" class="btn btn-primary" (click)="verSeleccionados();">Ver en consola los items seleccionados</button> 
       <button type="button" class="btn btn-danger ml-2" (click)="borrarTodo();">¡Borrar Todo!</button>  
+      <button type="button" class="btn btn-danger ml-2" (click)="desactivarTodos();">Desactivar Todos!</button>  
 
     </div>
   </div>
