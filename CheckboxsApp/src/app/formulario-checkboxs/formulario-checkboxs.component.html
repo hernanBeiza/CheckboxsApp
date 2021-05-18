@@ -1,0 +1,27 @@
+<p>Lista de checkboxs</p>
+
+<div class="row">
+  <div class="col-12">
+    <form class="form form-horizontal form-bordered" [formGroup]="checkboxsForm" (ngSubmit)="onSubmit(checkboxsForm.value)" >        
+      <div class="form-group">
+        <div class="form-check" *ngFor="let opcion of opcionesDos; let i = index">
+          <input class="form-check-input" type="checkbox" [id]="opcion.valor" name="item" 
+          [formControl]="obtenerControl(i)"
+          (click)="opcionesDosOnClick($event, opcion)" [checked]="opcion.seleccionado" [value]="opcion.seleccionado"
+          [disabled]="opcion.desactivar">
+          <label class="form-check-label" [for]="opcion.valor">
+            {{opcion.label}}
+          </label>
+        </div>
+
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf="!checkboxsForm.valid">
+        Debes seleccionar al menos un elemento de la lista
+      </div>
+
+      <button class="btn btn-outline-primary" [disabled]="!checkboxsForm.valid">Enviar</button>
+
+    </form>
+  </div>
+</div>
